@@ -1,0 +1,25 @@
+{
+  "name": "cs-312-miniproject-1",
+  "version": "1.0.0",
+  "description": "Basic Blog Web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidengseay/CS-312-MiniProject-1.git"
+  },
+  "keywords": [],
+  "author": "Aiden Seay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidengseay/CS-312-MiniProject-1/issues"
+  },
+  "homepage": "https://github.com/aidengseay/CS-312-MiniProject-1#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
