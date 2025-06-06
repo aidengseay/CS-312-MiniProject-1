@@ -2,6 +2,7 @@
   "name": "cs-312-miniproject-1",
   "version": "1.0.0",
   "description": "Basic Blog Web Application",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

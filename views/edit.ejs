@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Edit Page</h1>
+
+<form class="blog-form" action="/update" method="POST">
+    <input type="text" class="create-author" name="author" placeholder="Your name" required value="<%= blogPosts[blogIndex].author %>"/>
+    <input type="text" class="create-title" name="title" placeholder="Blog title" required value="<%= blogPosts[blogIndex].title %>"/>
+
+    <select class="create-category" name="category" required>
+        <option value="Trail Review" <%= blogPosts[blogIndex].category === "Trail Review" ? "selected" : "" %>>Trail Review</option>
+        <option value="Gear Review" <%= blogPosts[blogIndex].category === "Gear Review" ? "selected" : "" %>>Gear Review</option>
+        <option value="Personal Adventures" <%= blogPosts[blogIndex].category === "Personal Adventures" ? "selected" : "" %>>Personal Adventures</option>
+        <option value="Nature and Environment" <%= blogPosts[blogIndex].category === "Nature and Environment" ? "selected" : "" %>>Nature and Environment</option>
+    </select>
+
+    <textarea class="create-content" name="content" placeholder="Blog Content" required><%= blogPosts[blogIndex].content %></textarea>
+    <input type="hidden" name="blogNum" value="<%= blogIndex %>">
+    <input class="submit-btn" type="submit" value="Update">
+</form>
+
+<%- include("partials/footer.ejs") %>

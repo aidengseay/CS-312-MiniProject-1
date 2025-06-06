@@ -1,0 +1,56 @@
+<%- include("partials/header.ejs") %>
+
+<!-- filter tool -->
+<form action="/filter" method="POST">
+    <p id="filter-prompt">Filter Posts</p>
+
+    <select class="create-category" name="category" onchange="this.form.submit()">
+        <option value="None"></option>
+        <option value="Trail Review">Trail Review</option>
+        <option value="Gear Review">Gear Review</option>
+        <option value="Personal Adventures">Personal Adventures</option>
+        <option value="Nature and Environment">Nature and Environment</option>
+    </select>
+</form>
+
+<!-- blog contents -->
+<% for(let i = 0; i < blogPosts.length; i++) { %>
+
+    <div id="blog-post">
+        <h2 id="blog-title"><%= blogPosts[i].title %></h2>
+        <h3 id="blog-category"><%= blogPosts[i].category %></h3>
+        <p id="blog-time"><%= blogPosts[i].time %></p>
+        <p id="blog-author"><%= blogPosts[i].author %></p>
+        <p id="blog-content"><%= blogPosts[i].content %></p>
+
+        <form id="edit-form" action="/edit" method="POST">
+            <input type="hidden" name="blogNum" value="<%= i %>">
+            <button id="edit-btn" type="submit">Edit</button>
+        </form>
+
+        <form id="del-form" action="/delete" method="POST">
+            <input type="hidden" name="blogNum" value="<%= i %>">
+            <button id="del-btn" type="submit">Delete</button>
+        </form>
+    </div>
+
+<% } %>
+
+<!-- make a new post -->
+<form class="blog-form" action="/new" method="POST">
+    <input type="text" class="create-author" name="author" placeholder="Your name" required/>
+    <input type="text" class="create-title" name="title" placeholder="Blog title" required/>
+
+    <select class="create-category" name="category" required>
+        <option disabled selected value> -- select an option -- </option>
+        <option value="Trail Review">Trail Review</option>
+        <option value="Gear Review">Gear Review</option>
+        <option value="Personal Adventures">Personal Adventures</option>
+        <option value="Nature and Environment">Nature and Environment</option>
+    </select>
+
+    <textarea class="create-content" name="content" placeholder="Blog Content" required></textarea>
+    <input class="submit-btn" type="submit" value="Submit">
+</form>
+
+<%- include("partials/footer.ejs") %>
