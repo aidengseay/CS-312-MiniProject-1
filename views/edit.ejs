@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Edit Page</h1>
+<!-- editing form -->
+<h3 id="edit-title">Editing <%= blogPosts[blogIndex].title %></h3>
 
 <form class="blog-form" action="/update" method="POST">
     <input type="text" class="create-author" name="author" placeholder="Your name" required value="<%= blogPosts[blogIndex].author %>"/>

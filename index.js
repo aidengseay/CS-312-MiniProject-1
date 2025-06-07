@@ -16,6 +16,7 @@ function BlogPost(author, title, category, content) {
 }
 
 let blogPosts = [];
+let categoryFilter = "None";
 
 // requests ////////////////////////////////////////////////////////////////////
 
@@ -27,7 +28,7 @@ app.use(express.static("public"));
 
 // render the home page
 app.get("/", (req, res) => {
-    res.render("index.ejs", {blogPosts});
+    res.render("index.ejs", {blogPosts, categoryFilter});
 });
 
 // make a new blog post
@@ -61,7 +62,7 @@ app.post("/update", (req, res) => {
 
 // filter blog based on sections
 app.post("/filter", (req, res) => {
-    
+    categoryFilter = req.body["category"];
     res.redirect("/");
 });
 
@@ -69,4 +70,5 @@ app.post("/filter", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
 });
+
 ////////////////////////////////////////////////////////////////////////////////
