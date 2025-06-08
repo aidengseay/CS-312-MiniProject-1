@@ -1,22 +1,24 @@
 <%- include("partials/header.ejs") %>
 
 <!-- editing form -->
-<h3 id="edit-title">Editing <%= blogPosts[blogIndex].title %></h3>
+<div class="edit-post">
+    <h3 id="edit-title">Editing <%= blogPosts[blogIndex].title %></h3>
+    <form class="blog-form" action="/update" method="POST">
+        <input type="text" class="create-title" name="title" placeholder="Blog title" required value="<%= blogPosts[blogIndex].title %>"/>
+        <input type="text" class="create-author" name="author" placeholder="Your name" required value="<%= blogPosts[blogIndex].author %>"/>
 
-<form class="blog-form" action="/update" method="POST">
-    <input type="text" class="create-author" name="author" placeholder="Your name" required value="<%= blogPosts[blogIndex].author %>"/>
-    <input type="text" class="create-title" name="title" placeholder="Blog title" required value="<%= blogPosts[blogIndex].title %>"/>
+        <select class="create-category" name="category" required>
+            <option value="Trails" <%= blogPosts[blogIndex].category === "Trails" ? "selected" : "" %>>Trails</option>
+            <option value="Gear" <%= blogPosts[blogIndex].category === "Gear" ? "selected" : "" %>>Gear</option>
+            <option value="Skills" <%= blogPosts[blogIndex].category === "Skills" ? "selected" : "" %>>Skills</option>
+            <option value="Nature" <%= blogPosts[blogIndex].category === "Nature" ? "selected" : "" %>>Nature</option>
+        </select>
 
-    <select class="create-category" name="category" required>
-        <option value="Trail Review" <%= blogPosts[blogIndex].category === "Trail Review" ? "selected" : "" %>>Trail Review</option>
-        <option value="Gear Review" <%= blogPosts[blogIndex].category === "Gear Review" ? "selected" : "" %>>Gear Review</option>
-        <option value="Personal Adventures" <%= blogPosts[blogIndex].category === "Personal Adventures" ? "selected" : "" %>>Personal Adventures</option>
-        <option value="Nature and Environment" <%= blogPosts[blogIndex].category === "Nature and Environment" ? "selected" : "" %>>Nature and Environment</option>
-    </select>
+        <textarea class="create-content" name="content" rows=10 cols=60 placeholder="Blog Content" required><%= blogPosts[blogIndex].content %></textarea>
 
-    <textarea class="create-content" name="content" placeholder="Blog Content" required><%= blogPosts[blogIndex].content %></textarea>
-    <input type="hidden" name="blogNum" value="<%= blogIndex %>">
-    <input class="submit-btn" type="submit" value="Update">
-</form>
+        <input type="hidden" name="blogNum" value="<%= blogIndex %>">
+        <input class="submit-btn button" type="submit" value="Update">
+    </form>
+</div>
 
 <%- include("partials/footer.ejs") %>
