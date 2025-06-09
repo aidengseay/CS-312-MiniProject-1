@@ -15,10 +15,10 @@ Basic Blog Web Application using NodeJS, ExpressJS, and EJS.
 
 ### Preview
 
-<img align="center" src="images/homepage.png"/>
+<img align="center" src="git-images/homepage.png"/>
 <p align="center" ><em>Homepage</em></p>
 <br>
-<img align="center" src="images/edit.png"/>
+<img align="center" src="git-images/edit.png"/>
 <p align="center" ><em>Editing Page</em></p>
 
 ### Sources
